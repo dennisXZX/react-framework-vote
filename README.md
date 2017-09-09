@@ -1,6 +1,6 @@
-# React Framework Voting App
+# Framework Voting App
 
-Powered by React, Redux, Create-react-app and Bootstrap.
+Powered by Create React App, Redux and Bootstrap.
 
 ## Steps
 - run `npm install` to install dependencies

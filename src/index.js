@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
+import myAppReducer from './reducers';
 import registerServiceWorker from './registerServiceWorker';
 
 // import CSS
@@ -9,9 +10,8 @@ import './index.css';
 // import components
 import App from './App';
 import Results from './components/results';
-import myAppReducer from './reducers';
 
-// create a store for the app
+// create a store for the app, passing in a reducer
 let store = createStore(myAppReducer);
 
 function render() {

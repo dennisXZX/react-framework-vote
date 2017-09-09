@@ -9,34 +9,34 @@ class App extends Component {
 		this.store = this.props.store;
 	}
 
-	handleVoteAngular = () => {
-		this.store.dispatch(voteAngular());
-	};
-
-	handleVoteReact = () => {
-		this.store.dispatch(voteReact());
-	};
-
-	handleVoteVuejs = () => {
-		this.store.dispatch(voteVuejs());
+	handleVote = (framework) => {
+		switch (framework) {
+			case 'ANGULAR':
+				this.store.dispatch(voteAngular());
+				break;
+			case 'REACT':
+				this.store.dispatch(voteReact());
+				break;
+			case 'VUEJS':
+				this.store.dispatch(voteVuejs());
+				break;
+		}
 	};
 
 	render() {
     return (
-			<div>
-				<div className="jumbotron text-center">
-					<h2>What is your favorite front-end framework in 2017?</h2>
-					<h4>Click on the logos below to vote!</h4>
-					<div className="row">
-						<div className="col-xs-4">
-							<img src="./angular_logo.png" height="96" alt="Angular" onClick={this.handleVoteAngular} />
-						</div>
-						<div className="col-xs-4">
-							<img src="./react_logo.png" height="96" alt="React" onClick={this.handleVoteReact} />
-						</div>
-						<div className="col-xs-4">
-							<img src="./vuejs_logo.png" height="96" alt="Vuejs" onClick={this.handleVoteVuejs} />
-						</div>
+			<div className="jumbotron text-center">
+				<h2>What is your favorite front-end framework in 2017?</h2>
+				<h4 className="guide">Click on the logos below to vote!</h4>
+				<div className="row">
+					<div className="col-xs-4">
+						<img className="framework-icon" src="./assets/angular_logo.png" height="96" alt="Angular" onClick={() => this.handleVote('ANGULAR')} />
+					</div>
+					<div className="col-xs-4">
+						<img className="framework-icon" src="./assets/react_logo.png" height="96" alt="React" onClick={() => this.handleVote('REACT')} />
+					</div>
+					<div className="col-xs-4">
+						<img className="framework-icon" src="./assets/vuejs_logo.png" height="96" alt="Vuejs" onClick={() => this.handleVote('VUEJS')} />
 					</div>
 				</div>
 			</div>
